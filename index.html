@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Unban Request</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url('background-image-url.jpg') no-repeat center center fixed; /* Replace with your image URL */
+      background-size: cover;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .container h1 {
+      margin-bottom: 20px;
+    }
+    .container input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .container button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .container button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WhatsApp Unban Request</h1>
+    <input type="email" id="email" placeholder="Enter Your Email">
+    <input type="text" id="phoneNumber" placeholder="Enter Phone Number">
+    <textarea id="message" rows="10" style="width: 80%; margin-bottom: 20px;">Dear WhatsApp Support Team,
+
+I am writing to request a review and unban of my WhatsApp account associated with the phone number [YourPhoneNumber].
+
+I recently discovered that my account has been banned, and I am unaware of any violations of WhatsApp’s Terms of Service that I may have committed. I rely heavily on WhatsApp for both personal and professional communication, and this unexpected ban has caused significant inconvenience.
+
+If there was any mistake or misunderstanding leading to this ban, I sincerely apologize. I assure you that I adhere to all guidelines and policies set by WhatsApp and will continue to do so.
+
+Please review my case and let me know if there are any specific reasons for the ban. I am more than willing to cooperate and provide any necessary information to resolve this issue.
+
+Thank you for your understanding and assistance.
+
+Sincerely,
+
+[YourEmailAddress].</textarea>
+    <button onclick="copyText()">Copy Text</button>
+    <button onclick="redirectToWhatsApp()">Unban Request</button>
+  </div>
+
+  <script>
+    function copyText() {
+      const message = document.getElementById('message').value;
+      navigator.clipboard.writeText(message)
+        .then(() => {
+          alert("Text copied to clipboard!");
+        })
+        .catch(() => {
+          alert("Failed to copy text!");
+        });
+    }
+
+    function redirectToWhatsApp() {
+      const email = document.getElementById('email').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+
+      if (!email || !phoneNumber) {
+        alert('Please enter both email and phone number');
+        return;
+      }
+
+      const whatsappUrl = `https://www.whatsapp.com/contact/?subject=messenger&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phoneNumber)}`;
+      window.location.href = whatsappUrl;
+    }
+  </script>
+</body>
+</html>
